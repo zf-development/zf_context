@@ -1,10 +1,10 @@
 AddEventHandler('onResourceStart', function(resourceName)
     if resourceName == 'zf_context' then
         PerformHttpRequest("https://raw.githubusercontent.com/zf-development/zf_versions/main/zf_context.txt", function(err, text, headers)
+            local curVer = '1.0.1'
             Citizen.Wait(2000)
-            local curVer = Config.Version
             if text ~= nil then
-                if not curVer == text then
+                if curVer ~= text then
                     print '^1-----------------------------------------^0'
                     print '^1       UPDATE AVAILABLE ZF CONTEXT       ^0'
                     print '^1          GET IT ON DISCORD NOW          ^0'
