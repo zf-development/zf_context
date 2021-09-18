@@ -6,9 +6,9 @@ Simple and Easy to use Context Menu (Good replacement for ESX Menu Default)
 I really loved the NeroHiro Context that he made so I've ended up re-creating a context menu like he had made because he unfortunately stop support it..
 Hope you enjoy this "re-creation" of the nh-context with a new design that is more Luxurious version of it.
 
-![ShowCase](https://media.discordapp.net/attachments/888447971933425694/888914770584027166/unknown.png)
-![ShowCase](https://media.discordapp.net/attachments/888447971933425694/888914871897444372/unknown.png?width=1202&height=676)
-![ShowCase](https://media.discordapp.net/attachments/888447971933425694/888916293653233695/unknown.png)
+![ShowCase](https://media.discordapp.net/attachments/888447971933425694/888935190485954611/unknown.png)
+![ShowCase](https://media.discordapp.net/attachments/888447971933425694/888936008358449192/unknown.png)
+![ShowCase](https://media.discordapp.net/attachments/888447971933425694/888936077665120256/unknown.png)
 
 
 ## Installation
@@ -49,31 +49,21 @@ end)
 ```
 Or you can use the exported function
 ```
-RegisterCommand("testcontext", function(source, args, raw)
-    TriggerEvent("zf_context:testMenu")
-end)
-
-RegisterNetEvent('zf_context:testMenu', function()
-    local menuArray = {
+RegisterCommand('testcontext', function()
+    local myMenu = {
         {
             id = 1,
-            header = "Main Title",
-            text = ""
+            header = 'Header Title',
+            txt = ''
         },
         {
             id = 2,
-            header = "Sub Menu Button",
-            text = "This goes to a sub menu",
-            datas = {
-                event = '',
-                args = {
-                }
-            }
+            header = 'Button',
+            txt = 'Click here for help'
         }
     }
-
-    exports['zf_context']:openMenu(menuArray)
-end)
+    exports['zf_context']:openMenu(myMenu)
+end, false)
 ```
 
 

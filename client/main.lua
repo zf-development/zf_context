@@ -25,19 +25,3 @@ function openMenu(data)
         data = data
     })
 end
-
-RegisterCommand('testcontext', function()
-    local myMenu = {
-        {
-            id = 1,
-            header = 'Header Title',
-            txt = ''
-        },
-        {
-            id = 2,
-            header = 'Button',
-            txt = 'Click here for help'
-        }
-    }
-    openMenu(myMenu)
-end, false)
