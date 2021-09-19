@@ -20,14 +20,14 @@ const DrawButtons = (data) => {
     ButtonsData = data;
     for (let i = 0; i < ButtonsData.length; i++) {
         let header = ButtonsData[i].header;
-        let message = ButtonsData[i].txt;
+        let message = ButtonsData[i].text;
         let id = ButtonsData[i].id;
         let element;
 
         element = $(`
             <div class="button" id=` + id + `>
                 <div class="header" id=` + id + `>` + header + `</div>
-                <div class="txt" id=` + id + `>` + message + `</div>
+                <div class="text" id=` + id + `>` + message + `</div>
             </div>`);
         $('#buttons').append(element);
         Buttons[id] = element;

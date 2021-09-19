@@ -59,7 +59,7 @@ body::-webkit-scrollbar { /* Make the scrollbar invisible */
     background-color: #191F24;
 }
 
-.button > .txt { /* Text on buttons */
+.button > .text { /* Text on buttons */
     flex-direction: column;
     font-size: 0.775rem;
     overflow: hidden;
