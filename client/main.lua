@@ -17,6 +17,11 @@ AddEventHandler('zf_context:openMenu', function(data)
     openMenu(data)
 end)
 
+RegisterNetEvent('nh-context:sendMenu')
+AddEventHandler('nh-context:sendMenu', function(data)
+    openMenu(data)
+end)
+
 function openMenu(data)
     if not data then return end
     SetNuiFocus(true, true)

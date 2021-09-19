@@ -1,7 +1,7 @@
 AddEventHandler('onResourceStart', function(resourceName)
     if resourceName == 'zf_context' then
         PerformHttpRequest("https://raw.githubusercontent.com/zf-development/zf_versions/main/zf_context.txt", function(err, text, headers)
-            local curVer = '1.0.1'
+            local curVer = '1.0.2'
             Citizen.Wait(2000)
             if text ~= nil then
                 if curVer ~= text then
