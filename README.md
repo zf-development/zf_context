@@ -1,3 +1,7 @@
+![Lua](https://img.shields.io/badge/lua-%232C2D72.svg?style=for-the-badge&logo=lua&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Discord](https://img.shields.io/badge/%3CZF%3E-%237289DA.svg?style=for-the-badge&logo=discord&logoColor=white)
+
 # ZF Context | NoPixel Inspired Context Menu
 Simple and Easy to use Context Menu (Good replacement for ESX Menu Default)
 
@@ -21,30 +25,6 @@ Don't forget to start the resource in your server.cfg with `ensure zf_context`
 This is a default menu to show you how it works.
 This is only for exemple.
 ```
-RegisterCommand("testcontext", function(source, args, raw)
-    TriggerEvent('zf_context:openMenu', {
-        {
-            id = 1,
-            header = "Main Title",
-            text = ""
-        },
-        {
-            id = 2,
-            header = "Sub Menu Button",
-            text = "This goes to a sub menu",
-            datas = {
-                event = "zf_context:testMenu2",
-                args = {
-                    number = 1,
-                    id = 2
-                }
-            }
-        },
-    })
-end)
-```
-Or you can use the exported function
-```
 RegisterCommand('testcontext', function()
     local myMenu = {
         {
@@ -56,9 +36,20 @@ RegisterCommand('testcontext', function()
             id = 2,
             header = 'Button',
             txt = 'Click here for help'
+            params = {
+                event = 'takemymoney',
+                args = {
+                    amount = 500
+                }
+            }
         }
     }
     exports['zf_context']:openMenu(myMenu)
+
+    RegisterNetEvent('takemymoney')
+    AddEventHandler('takemymoney', function(data)
+        print('You have took ' .. data.amount .. '$ from me... 😭')
+    end)
 end, false)
 ```
 

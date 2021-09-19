@@ -30,3 +30,5 @@ function openMenu(data)
         data = data
     })
 end
+
+exports("openMenu", openMenu)
