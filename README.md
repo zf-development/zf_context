@@ -22,10 +22,6 @@ This is a default menu to show you how it works.
 This is only for exemple.
 ```
 RegisterCommand("testcontext", function(source, args, raw)
-    TriggerEvent("zf_context:testMenu")
-end)
-
-RegisterNetEvent('zf_context:testMenu', function()
     TriggerEvent('zf_context:openMenu', {
         {
             id = 1,
