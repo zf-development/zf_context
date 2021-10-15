@@ -22,35 +22,76 @@ Don't forget to start the resource in your server.cfg with `ensure zf_context`
 
 
 ## Usage
-This is a default menu to show you how it works.
-This is only for exemple.
-```
-RegisterCommand('testcontext', function()
-    local myMenu = {
+
+```lua
+exports["dl-context"]:OpenContext({
         {
             id = 1,
-            header = 'Header Title',
-            txt = ''
+            title = "Title",
+            description = "Description",
+            settings = {
+                fnc = "FunctionName",
+                args = {something = "anything"}
+            }
         },
         {
             id = 2,
-            header = 'Button',
-            txt = 'Click here for help'
-            params = {
-                event = 'takemymoney',
-                args = {
-                    amount = 500
-                }
+            title = "Title2",
+            description = "Description2",
+            settings = {
+                event = "TriggerServerEvent" or "TriggerEvent",
+                eventName = "dl-context:eventName",
+                args = {something = "anything"}
             }
         }
-    }
-    exports['zf_context']:openMenu(myMenu)
-
-    RegisterNetEvent('takemymoney')
-    AddEventHandler('takemymoney', function(data)
-        print('You have took ' .. data.amount .. '$ from me... 😭')
+    }, function(data)
+        if data and data.event then
+            _ENV[data.event](data.eventName, data)
+            return
+        elseif data and data.fnc then
+            _ENV[data.fnc](data)
+            return
+        end
     end)
-end, false)
+```
+
+## Other usage
+
+```lua
+local elements = {
+    {
+        id = 1,
+        title = "Title",
+        description = "Description",
+        settings = {
+            fnc = "FunctionName",
+            args = {something = "anything"}
+        }
+    }
+}
+if isBoss then
+    table.insert(elements, {
+        {
+            id = 2,
+            title = "Title2",
+            description = "Description2",
+            settings = {
+                event = "TriggerServerEvent" or "TriggerEvent",
+                eventName = "dl-context:eventName",
+                args = {something = "anything"}
+            }
+        }
+    })
+end
+exports["dl-context"]:OpenContext(elemnts, function(data)
+        if data and data.event then
+            _ENV[data.event](data.eventName, data)
+            return
+        elseif data and data.fnc then
+            _ENV[data.fnc](data)
+            return
+        end
+    )
 ```
 
 
