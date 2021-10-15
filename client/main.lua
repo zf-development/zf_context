@@ -1,34 +1,25 @@
-RegisterNUICallback('clickedButton', function(data, cb)
-    SetNuiFocus(false)
+local answer = nil
 
-    if data.isServer then
-        TriggerServerEvent(data.event, data.args)
-    else
-        TriggerEvent(data.event, data.args)
-    end
+RegisterNUICallback("OnClick", function(data, cb)
+    SetNuiFocus(false, false)
+    answer:resolve(data)
+    answer = nil
 end)
 
-RegisterNUICallback('closeMenu', function()
-    SetNuiFocus(false)
+RegisterNUICallback("CloseContext", function()
+    SetNuiFocus(false, false)
+    answer:resolve(nil)
+    answer = nil
 end)
 
-RegisterNetEvent('zf_context:openMenu')
-AddEventHandler('zf_context:openMenu', function(data)
-    openMenu(data)
-end)
-
-RegisterNetEvent('nh-context:sendMenu')
-AddEventHandler('nh-context:sendMenu', function(data)
-    openMenu(data)
-end)
-
-function openMenu(data)
-    if not data then return end
+function OpenContext(data, cb)
+    if answer or not data then return end
+    answer = promise.new()
     SetNuiFocus(true, true)
-    SendNUIMessage({
-        action = 'OPEN_MENU',
-        data = data
-    })
+    SendNUIMessage({type = "open_context", data = data})
+    if cb then
+        cb(Citizen.Await(answer))
+    else
+        return Citizen.Await(answer)
+    end
 end
-
-exports("openMenu", openMenu)
