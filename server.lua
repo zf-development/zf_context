@@ -7,7 +7,7 @@ PerformHttpRequest("https://raw.githubusercontent.com/zf-development/zf_version/
             print '^1-----------------------------------------^0'
             print '^1       UPDATE AVAILABLE ZF CONTEXT       ^0'
             print '^1          GET IT ON DISCORD NOW          ^0'
-            print '^1  https://discord.com/invite/YRWF7hxNmB  ^0'
+            print '^1  https://discord.com/invite/wp3SqwRUmH  ^0'
             print '^1-----------------------------------------^0'
         else
             print("^2ZF CONTEXT is up to date!^0")
@@ -15,7 +15,7 @@ PerformHttpRequest("https://raw.githubusercontent.com/zf-development/zf_version/
     else
         print '^1----------------------------------------^0'
         print '^1      ERROR GETTING ONLINE VERSION      ^0'
-        print '^1       IF PERSIST CONTACT ZF#0001       ^0'
+        print '^1     IF PERSIST CONTACT LeZach#3819     ^0'
         print '^1        OR BY TICKETS ON DISCORD        ^0'
         print '^1----------------------------------------^0'
     end 

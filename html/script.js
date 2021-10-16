@@ -20,7 +20,15 @@ const DrawButtons = (data) => {
     ButtonsData = data;
     for (let i = 0; i < ButtonsData.length; i++) {
         let header = ButtonsData[i].header;
-        let message =  ButtonsData[i].txt || ButtonsData[i].text;
+        let message = ''
+
+        if (ButtonsData[i].txt) {
+            message = ButtonsData[i].txt
+        }
+        if (ButtonsData[i].text) {
+            message = ButtonsData[i].text
+        }
+
         let id = ButtonsData[i].id;
         let element;
 
@@ -47,12 +55,12 @@ $(document).click(function (event) {
 });
 
 const PostData = (id) => {
-    $.post(`https://zf_context/clickedButton`, JSON.stringify(Button[id]));
+    $.post(`https://${GetParentResourceName()}/clickedButton`, JSON.stringify(Button[id]));
     return CloseMenu();
 };
 
 const CancelMenu = () => {
-    $.post(`https://zf_context/closeMenu`);
+    $.post(`https://${GetParentResourceName()}/closeMenu`);
     return CloseMenu();
 };
 

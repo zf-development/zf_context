@@ -1,9 +1,9 @@
 fx_version 'bodacious'
 game 'gta5'
 
-author 'ZF#0001'
+author 'LeZach#3819'
 description 'NoPixel Inspired Context Menu [based on nh-context]'
-version '1.0.3'
+version '1.0.4'
 
 client_script 'client/main.lua'
 server_script 'server.lua'

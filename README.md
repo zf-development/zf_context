@@ -24,7 +24,7 @@ Don't forget to start the resource in your server.cfg with `ensure zf_context`
 ## Usage
 This is a default menu to show you how it works.
 This is only for exemple.
-```
+```lua
 RegisterCommand('testcontext', function()
     local myMenu = {
         {
@@ -38,6 +38,7 @@ RegisterCommand('testcontext', function()
             txt = 'Click here for help'
             params = {
                 event = 'takemymoney',
+                isServer = true,
                 args = {
                     amount = 500
                 }
@@ -53,6 +54,23 @@ RegisterCommand('testcontext', function()
 end, false)
 ```
 
+Item Options
+```lua
+{
+    id = <integer> (need to be unique per menu),
+    header = <string>,
+    text = <string>,
+    params = <array> {
+        event = <string> '',
+        isServer = <boolean> (optional),
+        args = <array> {
+            your = 'variable',
+            you = 'can',
+            put = 'multiple'
+        }
+    }
+}
+```
 
 # Support
 If you find an error or have a suggestion, please feel free to help us by creating an issue on the github! [Issues](https://github.com/zf-development/zf_context/issues)
