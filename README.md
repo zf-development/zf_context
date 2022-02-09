@@ -35,7 +35,7 @@ RegisterCommand('testcontext', function()
         {
             id = 2,
             header = 'Button',
-            txt = 'Click here for help'
+            txt = 'Click here for help',
             params = {
                 event = 'takemymoney',
                 isServer = true,
